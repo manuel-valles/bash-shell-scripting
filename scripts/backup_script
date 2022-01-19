@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Author: Manuel Valles
+# Date Created: 2022/01/19
+# Last Modified: 2022/01/19
+
+# Description
+# Back up all the files in your home directory and save them all in a .tar archive
+
+# Usage
+# backup_script
+
+tar -cvf $PWD/my_backup_"$(date +%d-%m-%Y_%H-%M-%S)".tar ~/* 2>/dev/null
+exit 0

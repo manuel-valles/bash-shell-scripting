@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Author: Manuel Valles
+# Date Created: 2022/01/19
+# Last Modified: 2022/01/19
+
+# Description
+# Prints "Hello world!"
+
+# Usage
+# basic_script
+
+echo "Hello world!"
+exit 0
