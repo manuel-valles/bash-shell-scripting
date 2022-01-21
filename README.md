@@ -101,3 +101,51 @@ The `PATH` variable tells the shell where to search for `executable` files, and 
     - With a range increment: `{1..1000..3}`
     - With leading zeros: `{001.100}`
   - _more than one brace expansion_ to a single command line, along with `prefixes` and `postfixes`: `month{01..12}/file{01..31}.txt`
+
+## 3. User Inputs
+
+The shell assigns numbers called positional parameters to each command-line argument that is entered.
+
+- Example script: `$ myscript Manu Engineer`
+- Basic:
+  - `$1`: `Manu`
+  - `$2`: `Engineer`
+- Special parameters:
+  - `$#`: number of command line arguments provided to the script. `2`
+  - `$0`: script name. `myscript`
+  - `$@`, `$*`: each positional parameter as its own word with splitting. `Manu Engineer` (2 words)
+  - `"$@"`: each positional parameter as its own word without splitting. `Manu Engineer` (1 word)
+  - `"$*"`: all positional parameter as one word separated by the `IFS` variable. `IFS=,` -> `Manu,Engineer` (1 word)
+  - `$?`: exit code for the most recent command. `echo "Hello World!"` -> `0` (Successful)
+- **NOTE**: Although the number of positional parameters is unlimited, you MUST use the advanced `dollar-curlybrace` syntax for positional parameters 10 and above.
+
+<!-- TODO: Add scripts example from here -->
+
+The **read** command asks for inputs from the user and saves this input into a variable. It includes some options:
+
+- `-p <prompt>`: returns a `prompt` to user about what information they must enter
+- `-t <time>`: assigns a `timeout` if the user does not enter any value
+- `-s`: prevents the input from being shown in the terminal as the `secret` option
+- `-N <chars>`: limit the users response to exactly `chars` characters
+- `-n <chars>`: limit the users response to a maximum of `chars` characters
+
+The **select** command provides the user with a dropdown menu to select from. The user may select an option from a list of options. It is also possible to provide a prompt to a user using the `PS3` shell variable.
+
+- Syntax:
+  ```bash
+  select variable in options; do
+    commands...
+    break
+  done
+  ```
+- Example:
+  ```bash
+  #!/bin/bash
+  PS3="What is the day of the week?: "
+  select day in Mon Tue Wed Thu Fri Sat Sun; do
+    echo "The day of the week is $day"
+    break
+  done
+  ```
+
+<!-- TODO: Continue writing third section, likely "3. Logic" -->
