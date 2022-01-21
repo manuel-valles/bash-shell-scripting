@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Author: Manuel Valles
+# Date Created: 2022/01/20
+# Last Modified: 2022/01/20
+
+# Description
+# Prints some basic artihmetic operations
+
+# Usage
+# arithmetic_script
+
+x=7
+y=4
+
+echo $(( x + y ))
+echo $(( x - y ))
+echo $(( x * y ))
+echo $(( x / y ))
+echo $(( x % y ))
+echo $(( x ** 2 ))
+echo $(( (x + y) * y ))

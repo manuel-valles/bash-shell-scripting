@@ -1,0 +1,7 @@
+#!/bin/bash
+
+student="Manu"
+time=$(date +%H:%M:%S)
+
+echo "Hello, ${student}! You're a bit late since it is ${time}"
+exit 0

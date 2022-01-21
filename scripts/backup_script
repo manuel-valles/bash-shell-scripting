@@ -2,13 +2,19 @@
 
 # Author: Manuel Valles
 # Date Created: 2022/01/19
-# Last Modified: 2022/01/19
+# Last Modified: 2022/01/20
 
 # Description
-# Back up all the files in your home directory and save them all in a .tar archive
+# Back up all the files in your current work directory and save them all in a .tar archive
 
 # Usage
 # backup_script
 
-tar -cvf $PWD/my_backup_"$(date +%d-%m-%Y_%H-%M-%S)".tar ~/* 2>/dev/null
+echo "Hello, ${USER^}"
+echo "I will now back up your current working directory, '$PWD', into the '$PWD/backups' folder."
+echo "Running..."
+
+tar -cvf $PWD/backups/my_backup_"$(date +%d-%m-%Y_%H-%M-%S)".tar $PWD/* 2>/dev/null
+
+echo "Backup Completed Successfully"
 exit 0
